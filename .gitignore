@@ -1,0 +1,44 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# React
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+*.pyo
+*.pyd
+
+# Dataset
+dataset/
+*.zip
+
+# Python
+venv/
+__pycache__/
+
+# React
+node_modules/
+
+# Environment
+.env
+
+# Jupyter
+.ipynb_checkpoints/
