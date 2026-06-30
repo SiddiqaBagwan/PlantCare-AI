@@ -1,16 +1,38 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+
 from predict import predict_image
-from utils import load_image
+from utils import load_image, allowed_file
 from disease_info import disease_database
 
-app = FastAPI(title="PlantCare AI")
+app = FastAPI(
+    title="PlantCare AI API",
+    version="1.0.0"
+)
+
+# Allow React frontend to connect
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def home():
-    return {"message":"PlantCare AI API Running"}
+    return {
+        "message": "🌱 PlantCare AI API is running!"
+    }
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
+
+    if not allowed_file(file.filename):
+        raise HTTPException(
+            status_code=400,
+            detail="Only JPG, JPEG and PNG images are allowed."
+        )
 
     image = load_image(file.file)
 
@@ -18,25 +40,23 @@ async def predict(file: UploadFile = File(...)):
 
     disease = result["disease"]
     confidence = result["confidence"]
+
     info = disease_database.get(
         disease,
         {
-            "description":"Information coming soon.",
-            "treatment":[],
-            "prevention":[]
+            "description": "Information coming soon.",
+            "treatment": [],
+            "prevention": []
         }
     )
 
     return {
-
-        "disease": disease,
-
-        "confidence": round(confidence*100,2),
-
-        "description": info["description"],
-
-        "treatment": info["treatment"],
-
-        "prevention": info["prevention"]
-
+        "success": True,
+        "prediction": {
+            "disease": disease,
+            "confidence": confidence,
+            "description": info["description"],
+            "treatment": info["treatment"],
+            "prevention": info["prevention"]
+        }
     }
