@@ -1,34 +1,41 @@
+import ConfidenceBar from "./ConfidenceBar";
+
 function PredictionCard({ prediction }) {
 
   if (!prediction) return null;
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6">
 
-      <h2 className="text-2xl font-bold text-green-700">
-        Prediction
+    <div className="bg-white rounded-2xl shadow-xl p-8">
+
+      <h2 className="text-3xl font-bold text-green-700">
+
+        🌿 Prediction
+
       </h2>
 
-      <div className="mt-6 space-y-4">
+      <div className="mt-6">
 
-        <div>
-          <p className="text-gray-500">Disease</p>
-          <h3 className="text-xl font-semibold">
-            {prediction.disease}
-          </h3>
-        </div>
+        <p className="text-gray-500">
 
-        <div>
-          <p className="text-gray-500">Confidence</p>
-          <h3 className="text-xl font-semibold">
-            {prediction.confidence}%
-          </h3>
-        </div>
+          Disease
+
+        </p>
+
+        <h1 className="text-2xl font-bold">
+
+          {prediction.disease}
+
+        </h1>
 
       </div>
 
+      <ConfidenceBar confidence={prediction.confidence} />
+
     </div>
+
   );
+
 }
 
 export default PredictionCard;
