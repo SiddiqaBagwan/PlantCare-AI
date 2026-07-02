@@ -7,7 +7,7 @@ import Hero from "./components/Hero";
 import UploadBox from "./components/UploadBox";
 import ImagePreview from "./components/ImagePreview";
 import PredictionCard from "./components/PredictionCard";
-
+import LoadingSpinner from "./components/LoadingSpinner";
 function App() {
 
   const [image, setImage] = useState(null);
@@ -60,15 +60,7 @@ function App() {
 
       <UploadBox onImageSelect={handleImage} />
 
-      {loading && (
-
-        <div className="text-center text-2xl py-10">
-
-          🌿 Predicting...
-
-        </div>
-
-      )}
+      {loading && <LoadingSpinner />}
 
       {image && !loading && (
 

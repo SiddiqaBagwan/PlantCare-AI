@@ -1,41 +1,51 @@
 import ConfidenceBar from "./ConfidenceBar";
+import formatDisease from "../utils/formatDisease";
 
 function PredictionCard({ prediction }) {
 
   if (!prediction) return null;
 
   return (
+    <div className="bg-white rounded-3xl shadow-xl p-8 h-fit">
 
-    <div className="bg-white rounded-2xl shadow-xl p-8">
-
-      <h2 className="text-3xl font-bold text-green-700">
-
-        🌿 Prediction
-
+      <h2 className="text-3xl font-bold text-green-700 mb-8">
+        🌿 AI Analysis
       </h2>
 
-      <div className="mt-6">
+      <div className="space-y-6">
 
-        <p className="text-gray-500">
+        <div>
 
-          Disease
+          <p className="text-gray-500 text-sm uppercase">
+            Disease
+          </p>
 
-        </p>
+          <h1 className="text-3xl font-bold mt-1">
 
-        <h1 className="text-2xl font-bold">
+            {formatDisease(prediction.disease)}
 
-          {prediction.disease}
+          </h1>
 
-        </h1>
+        </div>
+
+        <ConfidenceBar confidence={prediction.confidence} />
+
+        <div>
+
+          <p className="text-gray-500 text-sm uppercase">
+            Description
+          </p>
+
+          <p className="mt-2 text-gray-700">
+            {prediction.description}
+          </p>
+
+        </div>
 
       </div>
 
-      <ConfidenceBar confidence={prediction.confidence} />
-
     </div>
-
   );
-
 }
 
 export default PredictionCard;

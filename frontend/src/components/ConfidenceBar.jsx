@@ -2,20 +2,24 @@ function ConfidenceBar({ confidence }) {
 
   return (
 
-    <div className="mt-5">
+    <div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-2">
 
-        <span>Confidence</span>
+        <span className="font-medium">
+          Confidence
+        </span>
 
-        <span>{confidence}%</span>
+        <span className="font-bold text-green-700">
+          {confidence}%
+        </span>
 
       </div>
 
-      <div className="w-full bg-gray-200 rounded-full h-3 mt-2">
+      <div className="w-full h-4 rounded-full bg-gray-200">
 
         <div
-          className="bg-green-600 h-3 rounded-full transition-all duration-700"
+          className="bg-green-600 h-4 rounded-full transition-all duration-1000"
           style={{
             width: `${confidence}%`
           }}
