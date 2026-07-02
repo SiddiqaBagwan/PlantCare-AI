@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import api from "./services/api";
 
@@ -8,50 +8,55 @@ import UploadBox from "./components/UploadBox";
 import ImagePreview from "./components/ImagePreview";
 import PredictionCard from "./components/PredictionCard";
 import LoadingSpinner from "./components/LoadingSpinner";
+import History from "./components/History";
+
 function App() {
-
   const [image, setImage] = useState(null);
-
   const [prediction, setPrediction] = useState(null);
-
   const [loading, setLoading] = useState(false);
+  const [history, setHistory] = useState([]);
+
+  // Load saved prediction history
+  useEffect(() => {
+    const savedHistory =
+      JSON.parse(localStorage.getItem("history")) || [];
+
+    setHistory(savedHistory);
+  }, []);
 
   const handleImage = async (file) => {
-
     setImage(file);
-
     setPrediction(null);
-
     setLoading(true);
 
     const formData = new FormData();
-
     formData.append("file", file);
 
     try {
-
       const response = await api.post("/predict", formData);
 
-      setPrediction(response.data.prediction);
+      const result = response.data.prediction;
 
-    }
+      setPrediction(result);
 
-    catch (error) {
+      // Save latest 6 predictions
+      const updatedHistory = [result, ...history].slice(0, 6);
 
-      console.log(error);
+      setHistory(updatedHistory);
 
-    }
+      localStorage.setItem(
+        "history",
+        JSON.stringify(updatedHistory)
+      );
 
-    finally {
-
+    } catch (error) {
+      console.error(error);
+    } finally {
       setLoading(false);
-
     }
-
   };
 
   return (
-
     <div className="min-h-screen bg-green-50">
 
       <Navbar />
@@ -63,7 +68,6 @@ function App() {
       {loading && <LoadingSpinner />}
 
       {image && !loading && (
-
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 px-6 pb-20">
 
           <ImagePreview image={image} />
@@ -71,13 +75,12 @@ function App() {
           <PredictionCard prediction={prediction} />
 
         </div>
-
       )}
 
+      <History history={history} />
+
     </div>
-
   );
-
 }
 
 export default App;
