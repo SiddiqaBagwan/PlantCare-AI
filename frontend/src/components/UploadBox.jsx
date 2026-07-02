@@ -26,7 +26,15 @@ function UploadBox({ onImageSelect }) {
         </h2>
 
         <p className="text-gray-500 mt-2">
-          Drag & Drop or Click to Browse
+          ⬆
+
+Drag & Drop
+
+or Click
+
+Supported
+
+PNG • JPG • JPEG
         </p>
 
         <input

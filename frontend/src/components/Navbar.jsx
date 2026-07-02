@@ -9,7 +9,7 @@ function Navbar() {
       <div className="flex gap-8">
 
         <a href="#" className="hover:text-green-600">
-          Home
+          Features
         </a>
 
         <a href="#" className="hover:text-green-600">

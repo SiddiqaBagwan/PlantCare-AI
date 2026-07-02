@@ -10,10 +10,16 @@ function ImagePreview({ image }) {
       </h2>
 
       <img
-        src={URL.createObjectURL(image)}
-        alt="Leaf Preview"
-        className="rounded-xl w-full object-cover"
-      />
+    src={URL.createObjectURL(image)}
+    alt="Leaf Preview"
+    className="
+        w-full
+        h-[420px]
+        object-cover
+        rounded-2xl
+        shadow-lg
+    "
+/>
 
     </div>
   );

@@ -6,45 +6,53 @@ function PredictionCard({ prediction }) {
   if (!prediction) return null;
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl p-8 h-fit">
+    <div className="bg-white rounded-3xl shadow-xl p-8 h-full">
 
-      <h2 className="text-3xl font-bold text-green-700 mb-8">
-        🌿 AI Analysis
-      </h2>
+<h2 className="text-3xl font-bold text-green-700">
 
-      <div className="space-y-6">
+🌿 AI Analysis
 
-        <div>
+</h2>
 
-          <p className="text-gray-500 text-sm uppercase">
-            Disease
-          </p>
+<div className="mt-8 space-y-7">
 
-          <h1 className="text-3xl font-bold mt-1">
+<div>
 
-            {formatDisease(prediction.disease)}
+<p className="uppercase text-gray-500 text-sm">
 
-          </h1>
+Disease
 
-        </div>
+</p>
 
-        <ConfidenceBar confidence={prediction.confidence} />
+<h1 className="text-3xl font-bold mt-1">
 
-        <div>
+{formatDisease(prediction.disease)}
 
-          <p className="text-gray-500 text-sm uppercase">
-            Description
-          </p>
+</h1>
 
-          <p className="mt-2 text-gray-700">
-            {prediction.description}
-          </p>
+</div>
 
-        </div>
+<ConfidenceBar confidence={prediction.confidence}/>
 
-      </div>
+<div>
 
-    </div>
+<p className="uppercase text-gray-500 text-sm">
+
+Description
+
+</p>
+
+<p className="mt-2 text-gray-700">
+
+{prediction.description}
+
+</p>
+
+</div>
+
+</div>
+
+</div>
   );
 }
 
