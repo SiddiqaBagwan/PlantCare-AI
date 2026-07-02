@@ -1,9 +1,9 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from gemini_service import get_ai_advice
-from predict import predict_image
-from utils import load_image, allowed_file
-from disease_info import disease_database
+from backend.gemini_service import get_ai_advice
+from backend.predict import predict_image
+from backend.utils import load_image, allowed_file
+from backend.disease_info import disease_database
 
 app = FastAPI(
     title="PlantCare AI API",
