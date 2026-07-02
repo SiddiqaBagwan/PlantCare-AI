@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-
+from gemini_service import get_ai_advice
 from predict import predict_image
 from utils import load_image, allowed_file
 from disease_info import disease_database
@@ -41,14 +41,10 @@ async def predict(file: UploadFile = File(...)):
     disease = result["disease"]
     confidence = result["confidence"]
 
-    info = disease_database.get(
-        disease,
-        {
-            "description": "Information coming soon.",
-            "treatment": [],
-            "prevention": []
-        }
-    )
+    info = get_ai_advice(
+    disease,
+    confidence
+)
 
     return {
         "success": True,

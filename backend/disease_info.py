@@ -1,29 +1,11 @@
-disease_database = {
+import json
+from pathlib import Path
 
-    "Tomato___Early_blight":{
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / "data" / "diseases.json"
 
-        "description":"Early blight is a fungal disease affecting tomato leaves.",
-
-        "treatment":[
-            "Apply fungicide.",
-            "Remove infected leaves."
-        ],
-
-        "prevention":[
-            "Avoid overhead watering.",
-            "Rotate crops."
-        ]
-    },
-
-    "background":{
-
-        "description":"No plant leaf detected.",
-
-        "treatment":[],
-
-        "prevention":[
-            "Upload a clear image of a plant leaf."
-        ]
-    }
-
-}
+try:
+    with open(DATA_PATH, "r", encoding="utf-8") as f:
+        disease_database = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    disease_database = {}
