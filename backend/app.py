@@ -47,12 +47,9 @@ async def predict(file: UploadFile = File(...)):
 )
 
     return {
-        "success": True,
-        "prediction": {
-            "disease": disease,
-            "confidence": confidence,
-            "description": info["description"],
-            "treatment": info["treatment"],
-            "prevention": info["prevention"]
-        }
+    "prediction": {
+        "disease": disease,
+        "confidence": round(confidence, 2),
+        **info
     }
+}
