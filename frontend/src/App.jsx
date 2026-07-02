@@ -6,7 +6,12 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import UploadBox from "./components/UploadBox";
 import ImagePreview from "./components/ImagePreview";
+import SymptomsCard from "./components/SymptomsCard";
+import Treatment from "./components/TreatmentCard";
+import Prevention from "./components/PreventionCard";
 import PredictionCard from "./components/PredictionCard";
+
+
 import LoadingSpinner from "./components/LoadingSpinner";
 import History from "./components/History";
 
@@ -76,6 +81,18 @@ function App() {
 
         </div>
       )}
+
+      {prediction && !loading && (
+  <div className="max-w-6xl mx-auto space-y-6 px-6 pb-20">
+
+    <SymptomsCard symptoms={prediction.symptoms} />
+
+    <Treatment treatment={prediction.treatment} />
+
+    <Prevention prevention={prediction.prevention} />
+
+  </div>
+)}
 
       <History history={history} />
 
