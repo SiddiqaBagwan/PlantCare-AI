@@ -76,7 +76,8 @@ Weighted F1: 0.93
 
 ## Screenshots
 
-(Home page)
+<img width="551" height="362" alt="strleaf" src="https://github.com/user-attachments/assets/aba92336-4658-45d7-9a95-03a58d8fa225" />
+
 
 (Upload)
 
