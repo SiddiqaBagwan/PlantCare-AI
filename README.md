@@ -109,4 +109,6 @@ cd ...
 
 ## License
 
-MIT
+Siddiqa Bagwan
+Marathwada Mitra Mandal's College of Engineering,Pune,India
+contact: siddiqabagwan786@gmail.com
