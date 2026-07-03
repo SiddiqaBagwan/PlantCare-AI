@@ -78,12 +78,13 @@ Weighted F1: 0.93
 
 <img width="551" height="362" alt="strleaf" src="https://github.com/user-attachments/assets/aba92336-4658-45d7-9a95-03a58d8fa225" />
 
+<img width="1901" height="875" alt="HomePage1" src="https://github.com/user-attachments/assets/0d01d56b-36aa-4b9b-a0e2-dd48f4b8ebec" />
 
-(Upload)
+<img width="1414" height="879" alt="HomePage2" src="https://github.com/user-attachments/assets/cf0eea7f-b16c-49d9-8b92-ac49244a4572" />
 
-(Result)
+<img width="1162" height="842" alt="analysis1" src="https://github.com/user-attachments/assets/583feb9d-6cfc-439e-aa69-79d66e2bb325" />
 
-(Camera)
+<img width="1160" height="863" alt="analysis2" src="https://github.com/user-attachments/assets/dedca622-6ff6-493c-92ce-7f8f9421d5bd" />
 
 ---
 
