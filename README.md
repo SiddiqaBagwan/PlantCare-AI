@@ -1,4 +1,4 @@
-# 🌱 PlantCare AI
+Project: # 🌱 PlantCare AI
 
 AI-powered plant disease detection using TensorFlow, FastAPI, React, and Gemini AI.
 
@@ -111,6 +111,7 @@ cd ...
 
 ## License
 
-Siddiqa Bagwan
+Siddiqa Bagwan 
+Computer Engineering student
 Marathwada Mitra Mandal's College of Engineering,Pune,India
 contact: siddiqabagwan786@gmail.com
