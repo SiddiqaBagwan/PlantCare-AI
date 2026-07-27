@@ -1,5 +1,4 @@
-**Project: # 🌱 PlantCare AI
-**
+**Project: # 🌱 PlantCare AI**
 AI-powered plant disease detection using TensorFlow, FastAPI, React, and Gemini AI.
 
 ---
