@@ -9,6 +9,7 @@ AI-powered plant disease detection using TensorFlow, FastAPI, React, and Gemini 
 Frontend:
 https://plant-care-ai-amber.vercel.app
 
+
 Backend:
 https://plantcare-ai-aiv5.onrender.com
 
